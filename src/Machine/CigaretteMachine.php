@@ -37,9 +37,9 @@ class CigaretteMachine implements MachineInterface
             throw new \Exception('Not enough money.'); // TODO: Make Dedicated Exception
         }
 
-        $totalAmount = round(self::ITEM_PRICE * $itemQuantity, 2);
+        $totalAmount = self::ITEM_PRICE * $itemQuantity;
 
-        $changeF = $paidAmount - $totalAmount;
+        $changeF = round($paidAmount - $totalAmount, 2);
         $changeI = (int)($changeF * 100);
         $changeCoins  = array();
         
@@ -49,7 +49,7 @@ class CigaretteMachine implements MachineInterface
             
             if ($changeI >= $value) {
                 $coco = (int)($changeI / $value);
-                $changeI -= (int)($value * $coco);
+                $changeI -= $value * $coco;
                 $changeCoins[] = [$coin, $coco];
             }
 
