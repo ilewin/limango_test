@@ -12,7 +12,7 @@ class SimplePurchasedItem implements PurchasedItemInterface {
     
     public function __construct($itemQuantity, $totalAmount, $change) {
         $this->itemQuantity = $itemQuantity;
-        $this->total = $totalAmount;
+        $this->totalAmount = $totalAmount;
         $this->change = $change;
     }
     

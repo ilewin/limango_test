@@ -52,7 +52,7 @@ class PurchaseCigarettesCommand extends Command
         
         $item_price = CigaretteMachine::ITEM_PRICE;
         
-        $output->writeln("You bought <info>{$purchaseTransaction->getItemQuantity()}</info> packs of cigarettes for <info>...</info>, each for <info>{$item_price}</info>.");
+        $output->writeln("You bought <info>{$purchasedItem->getItemQuantity()}</info> packs of cigarettes for <info>-{$purchasedItem->getTotalAmount()}€</info>, each for <info>-{$item_price}€</info>.");
         $output->writeln('Your change is:');
         $table = new Table($output);
         $table->setHeaders(array('Coins', 'Count'))

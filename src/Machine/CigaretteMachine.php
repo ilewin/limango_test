@@ -39,12 +39,14 @@ class CigaretteMachine implements MachineInterface
             throw new \Exception('Not enough money.'); // TODO: Make Dedicated Exception
         }
 
-        $changeF = round($paidAmount - self::ITEM_PRICE * $itemQuantity, 2);
+        $totalAmount = round(self::ITEM_PRICE * $itemQuantity, 2);
+
+        $changeF = $paidAmount - $totalAmount;
         $changeI = (int)($changeF * 100);
         $changeCoins  = array();
         
         // One of the 7 sins
-        // TODO: Consider moving to a separate service class.
+        // TODO: Consider moving to a separate service.
         foreach ($this->coinDen as $coin => $value) {
             
             if ($changeI >= $value) {
@@ -58,7 +60,7 @@ class CigaretteMachine implements MachineInterface
             }
 
         }
-        return new SimplePurchasedItem($itemQuantity, $paidAmount, $changeCoins);
+        return new SimplePurchasedItem($itemQuantity, $totalAmount, $changeCoins);
     }
 
 
