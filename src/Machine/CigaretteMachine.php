@@ -10,10 +10,8 @@ class CigaretteMachine implements MachineInterface
 {
     const ITEM_PRICE = 4.99;
     
-    // Euro Coins
+    // Euro Coins Set
     private $coinDen = array(
-        '10' => 1000,
-        '5' => 500,
         '2' => 200,
         '1' => 100,
         '0.5' => 50,
