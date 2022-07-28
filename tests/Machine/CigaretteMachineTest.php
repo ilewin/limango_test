@@ -20,7 +20,6 @@ class CigaretteMachineTest extends TestCase {
         $stub->method('getItemQuantity')->willReturn(1);
         $stub->method('getPaidAmount')->willReturn(3.00);
         $machine->execute($stub);
-
     }
 
     public function testCanExecuteMachine() {
