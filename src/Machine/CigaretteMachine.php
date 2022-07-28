@@ -58,7 +58,9 @@ class CigaretteMachine implements MachineInterface
             }
 
         }
+
         return new SimplePurchasedItem($itemQuantity, $totalAmount, $changeCoins);
+    
     }
 
 
