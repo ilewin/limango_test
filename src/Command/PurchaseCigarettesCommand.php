@@ -41,9 +41,10 @@ class PurchaseCigarettesCommand extends Command
         //TODO: Consider using DI
         
         $cigaretteMachine = new CigaretteMachine();
-  
+        
+        $purchaseTransaction = new SimplePurchaseTransaction($itemCount, $amount);
+        
         try {
-            $purchaseTransaction = new SimplePurchaseTransaction($itemCount, $amount);
             $purchasedItem = $cigaretteMachine->execute($purchaseTransaction);
         } catch (\Exception $e) {
             $output->writeln("<error>{$e->getMessage()}</error>");
